@@ -1,0 +1,110 @@
+% Please make sure you insert your
+% data according to the instructions in PoSauthmanual.pdf
+\documentclass[a4paper,11pt]{article}
+\usepackage{pos}
+
+\title{Comparison of Kerr and dilaton black hole shadows}
+\ShortTitle{Comparison of Kerr and dilaton black hole shadows}
+
+\author*[a]{Jan Röder}
+\author[a]{A. Cruz-Osorio}
+\author[a]{C. M. Fromm}
+\author[a,b]{Y. Mizuno}
+\author[c,d]{Z. Younsi}
+\author[a,e,f]{L. Rezzolla}
+
+
+\affiliation[a]{Institut f\"ur Theoretische Physik,\\ Max-von-Laue-Stra{\ss}e 1, D-60438 Frankfurt am Main, Germany}
+
+\affiliation[b]{Tsung-Dao Lee Institute and School of Physics and Astronomy,\\ Shanghai Jiao Tong University, Shanghai, 200240, China}
+
+\affiliation[c]{Mullard Space Science Laboratory,\\ University College London, Holmbury St. Mary, Dorking, Surrey, RH5 6NT, UK}
+
+\affiliation[d]{UKRI Stephen Hawking Fellow}
+
+\affiliation[e]{Frankfurt Institute for Advanced Studies,\\ Ruth-Moufang-Stra{\ss}e 1, 60438 Frankfurt am Main, Germany}
+
+\affiliation[f]{School of Mathematics, \\ 
+Trinity College, Dublin 2, Ireland}
+
+
+\emailAdd{jroeder@itp.uni-frankfurt.de}
+\emailAdd{osorio@itp.uni-frankfurt.de}
+\emailAdd{cfromm@itp.uni-frankfurt.de}
+\emailAdd{mizuno@itp.uni-frankfurt.de}
+\emailAdd{z.younsi@ucl.ac.uk}
+\emailAdd{rezzolla@itp.uni-frankfurt.de}
+
+
+\abstract{
+The vicinity of supermassive black holes (SMBHs) has been in the focus of scientific research for decades. Open questions revolve around the types of compact objects in the centers of galaxies, plasma dynamics around them and emission processes at play. The goal of this study is to assess whether it is possible to distinguish between two spacetimes in observations by means of synthetic imaging. %, under the aspect of different emission models. 
+To this end, general relativistic radiative transfer (GRRT) calculations are carried out on general relativistic magneto-hydrodynamics (GRMHD) simulations of a Kerr and of a non-rotating dilaton black hole. We parametrize the proton-to-electron temperature ratio and further generate synthetic VLBI data that images are reconstructed from. 
+
+
+% Extending the studies conducted in the pioneering work of Mizuno \textit{et al.} 2018,  
+ 
+% The systems are matched at the innermost stable circular orbit, and both black holes are initially surrounded by a torus in hydrostatic equilibrium with a weak poloidal magnetic field. 
+ 
+% In order to investigate the plasma dynamics, GRMHD simulations were carried out using the ``Black Hole Accretion Code'' (BHAC). 
+ 
+% In the literature the ratio between the temperatures of simulated ions and radiating electrons is often taken to be a constant, while in reality it is expected to depend on plasma properties. 
+ 
+% In radiative post-processing with the code ``Black Hole Observations in Stationary Spacetimes'' (BHOSS) the temperature ratio was therefore parametrized. 
+ 
+% Additionally, in the jet wall, electrons are believed to be accelerated and should therefore be modeled with non-thermal electrons. To this end, both thermal and non-thermal electron energy distribution functions were employed. 
+ 
+% Lastly, images were reconstructed from synthetic VLBI data with the ``eht-imaging'' Python package to study how the effects of the emission models carry over to an observational environment. 
+ 
+% The most impactful result is the effect of the parameter $R_{\rm high}$ in the temperature ratio parametrization, splitting source structures into torus-- and jet dominated configurations. 
+ 
+% Non-thermal emission turns out to be negligible at the field of view used and for the region it is applied in. 
+ 
+% Hence, given the present observational capabilities, it is unlikely that it is possible to distinguish spacetimes in observations. The striking visual differences are due to the difference in rotation between the black holes. 
+ 
+% In synthetic VLBI images, even the difference in shadow size is lost for most configurations. The situation may be improved in the future by a better VLBI array.
+}
+
+\FullConference{%
+  *** European VLBI Network Mini-Symposium and Users' Meeting (EVN2021) ***\\
+  *** 12-14 July, 2021 ***\\
+  *** Online ***
+}
+
+%% \tableofcontents
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+\section{Methods}
+\subsection{General-Relativistic Magneto-hydrodynamics (GRMHD)}
+Following the pioneering work of Mizuno \textit{et al.} 2018 \cite{Mizuno2018}, we choose as representative systems a Kerr black hole with dimensionless spin $a_\star=0.6$ and a non-rotating dilaton black hole with dilaton parameter $b=0.504$ in spherically symmetric polar coordinates. The latter black hole is described by the Einstein-Maxwell-Dilaton-Axion (EMDA) gravity \cite{Garcia1995}, with the Axion field set to zero. The two black holes are matched at the innermost stable circular orbit. \\
+
+The GRMHD equations consisting of local conservation of mass, energy and momentum along with Faraday's law read \cite{Rezzolla_book:2013,Porth2017}:
+\begin{align} 
+\nabla_\mu\left(\rho u^\mu\right)=0,\ \ \ \nabla_\mu T^{\mu\nu}=0,\ \ \ \nabla_\mu {}^{*}\!F^{\mu\nu}=0,\label{eq:grmhd_eqs}\\
+T^{\mu\nu}=\rho h_{\rm tot}u^\mu u^\nu +p_{\rm tot} g^{\mu\nu}-b^\mu b^\nu,\label{eq:Tmunu}\\
+ ^{*}\!F^{\mu\nu}=b^\mu u^\nu - b^\nu u^\mu,\label{eq:Fmunu}
+\end{align}
+In Eq. \ref{eq:grmhd_eqs}, $\rho$ is the rest mass density and $u^\mu$ is the fluid four-velocity. Equations \ref{eq:Tmunu} and \ref{eq:Fmunu} show the energy-momentum tensor $T^{\mu\nu}$ and the dual of the Faraday tensor $^{*}\!F^{\mu\nu}$, with total pressure $p_{\rm tot}=p+b^2/2$ and specific enthalpy $h_{\rm tot}=h+b^2/\rho$. Lastly, $b^2=b^\mu b_\mu$ and $b^\mu$ describe the magnetic field strength in the fluid frame and magnetic field four-vector. \\ 
+Following Mizuno \textit{et al.} 2018, both GRMHD simulations are initialized with a static hydrostatic equilibrium torus with a constant angular momentum distribution \cite{Font02b,Rezzolla_book:2013}. The torus is governed by an ideal gas equation of state with adiabatic index $\Gamma=4/3$, while on the outside pressure and density floor values are applied \cite{Mizuno2018}. The gas pressure in the torus is perturbed by 1\,\% in order to trigger the magneto-rotational instability, which subsequently drives the accretion process.
+
+
+
+
+
+\section{Results}
+
+\section{Discussion}
+
+
+%\begin{thebibliography}{99}
+%\bibitem{...}
+%....
+%\end{thebibliography}
+
+\bibliographystyle{JHEP}
+\bibliography{aeireferences_use.bib}
+
+\end{document}
